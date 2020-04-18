@@ -185,7 +185,7 @@ static int
 run_stream(void *data) {
     struct stream *stream = data;
 
-    AVCodec *codec = avcodec_find_decoder(AV_CODEC_ID_H264);
+    AVCodec *codec = avcodec_find_decoder(AV_CODEC_ID_HEVC);
     if (!codec) {
         LOGE("H.264 decoder not found");
         goto end;
@@ -214,7 +214,7 @@ run_stream(void *data) {
         }
     }
 
-    stream->parser = av_parser_init(AV_CODEC_ID_H264);
+    stream->parser = av_parser_init(AV_CODEC_ID_HEVC);
     if (!stream->parser) {
         LOGE("Could not initialize parser");
         goto finally_stop_and_join_recorder;

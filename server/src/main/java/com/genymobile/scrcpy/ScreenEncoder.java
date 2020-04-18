@@ -135,13 +135,13 @@ public class ScreenEncoder implements Device.RotationListener {
     }
 
     private static MediaCodec createCodec() throws IOException {
-        return MediaCodec.createEncoderByType("video/avc");
+        return MediaCodec.createEncoderByType("video/hevc");
     }
 
     @SuppressWarnings("checkstyle:MagicNumber")
     private static MediaFormat createFormat(int bitRate, int maxFps, int iFrameInterval) {
         MediaFormat format = new MediaFormat();
-        format.setString(MediaFormat.KEY_MIME, "video/avc");
+        format.setString(MediaFormat.KEY_MIME, "video/hevc");
         format.setInteger(MediaFormat.KEY_BIT_RATE, bitRate);
         // must be present to configure the encoder, but does not impact the actual frame rate, which is variable
         format.setInteger(MediaFormat.KEY_FRAME_RATE, 60);
